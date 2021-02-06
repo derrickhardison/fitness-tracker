@@ -21,9 +21,16 @@ mongoose.connect(
       useFindAndModify: false
     }
   );
+  mongoose.connection.on('connection', () => {
+    console.log("Mongoose successfully connected.")
+  });
 
+  mongoose.connection.on('error', err => {
+      console.log("Mongoose connection error: ")
+    logError(err);
+  });
 // Required routes paths
-require("./public/api")(app);
+//require("./public/api")(app);
 // require("./routes/html-routes.js")(app);
 
 // Listener
