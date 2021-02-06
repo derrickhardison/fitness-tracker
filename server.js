@@ -23,7 +23,7 @@ mongoose.connect(
   );
 
 // Required routes paths
-require("./routes/api.js")(app);
+require("./public/api")(app);
 // require("./routes/html-routes.js")(app);
 
 // Listener
