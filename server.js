@@ -18,13 +18,15 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useCreateIndex: true,
   useFindAndModify: false,
 });
-mongoose.connection.on("connection", () => {
+
+const connection = mongoose.connection;
+
+connection.on("connection", () => {
   console.log("Mongoose successfully connected.");
 });
 
-mongoose.connection.on("error", (err) => {
-  console.log("Mongoose connection error: ");
-  console.log(err);
+connection.on("error", (err) => {
+  console.log("Mongoose connection error: " + err) ;
 });
 // Required routes paths
 // app.use(require("./routes/api.js"));
