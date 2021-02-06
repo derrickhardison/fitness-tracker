@@ -13,7 +13,7 @@ app.use(express.static('public'));
 
 // Mongoose connect to deploy into Heroku
 mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/fitness',
+    process.env.MONGODB_URI || 'mongodb://localhost/workout',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
