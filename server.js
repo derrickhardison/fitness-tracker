@@ -5,35 +5,33 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
- app.use(morgan("dev"));
+app.use(morgan("dev"));
 
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // Mongoose connect to deploy into Heroku
-mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/workout',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false
-    }
-  );
-  mongoose.connection.on('connection', () => {
-    console.log("Mongoose successfully connected.")
-  });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
+mongoose.connection.on("connection", () => {
+  console.log("Mongoose successfully connected.");
+});
 
-  mongoose.connection.on('error', err => {
-      console.log("Mongoose connection error: ")
-    logError(err);
-  });
+mongoose.connection.on("error", (err) => {
+  console.log("Mongoose connection error: ");
+  console.log(err);
+});
 // Required routes paths
-//require("./public/api")(app);
+// app.use(require("./routes/api.js"));
+
 // require("./routes/html-routes.js")(app);
 
 // Listener
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`App listening on http://localhost:${PORT}`);
 });
