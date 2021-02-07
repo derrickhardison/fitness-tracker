@@ -2,7 +2,6 @@ const express = require("express");
 // const morgan = require("morgan");
 const mongoose = require("mongoose");
 
-
 const PORT = process.env.PORT || 3000;
 
 const app = express();
@@ -28,12 +27,11 @@ connection.on("connection", () => {
 });
 
 connection.on("error", (err) => {
-  console.log("Mongoose connection error: " + err) ;
+  console.log("Mongoose connection error: " + err);
 });
 // Required routes paths
- app.use(require("./routes/api.js"));
-
-// require("./routes/html-routes.js")(app);
+app.use(require("./routes/api-routes.js"));
+app.use(require("./routes/html-routes.js"));
 
 // Listener
 app.listen(PORT, function () {
