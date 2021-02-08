@@ -47,7 +47,7 @@ Router.get("/api/workouts/range", (req, res) => {
     },
   ])
     .limit(7)
-    .sort({ _id: -1 })
+    //.sort({ _id: -1 })
     .then((workouts) => {
       res.json(workouts);
     });
