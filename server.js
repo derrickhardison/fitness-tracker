@@ -31,7 +31,7 @@ connection.on("error", (err) => {
 });
 // Required routes paths
 // app.use(require("./routes/api-routes.js"));
-// app.use(require("./routes/html-routes.js"));
+ app.use(require("./routes/html-routes.js"));
 
 // Listener
 app.listen(PORT, function () {
