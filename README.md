@@ -27,4 +27,4 @@ The user should be able to:
 
   * View the total duration of each workout from the past seven workouts on the `stats` page.
 
-  Deployed link: 
+  Deployed link: https://murmuring-shore-54007.herokuapp.com/
